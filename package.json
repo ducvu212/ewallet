@@ -5,11 +5,36 @@
   "scripts": {
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "rm-i": "rm -rf node_modules/ && npm install",
+    "android": "ENVFILE=.env react-native run-android --variant=devDebug --appIdSuffix 'dev'",
+    "android-staging": "ENVFILE=.env.staging react-native run-android --variant=stagingDebug --appIdSuffix 'stg'",
+    "android-prod": "ENVFILE=.env.production react-native run-android --variant=productionDebug ",
+    "android-build": "export ENVFILE=.env && cd android && ./gradlew assembleDevRelease && cd ..",
+    "android-build-staging": "export ENVFILE=.env.staging && cd android && ./gradlew assembleStagingRelease && cd ..",
+    "android-build-prod": "export ENVFILE=.env.production && cd android && ./gradlew assembleProductionRelease && cd ..",
+    "ios": "react-native run-ios --configuration Debug --scheme 'ewallet (Dev)'",
+    "ios-6": "react-native run-ios --configuration Debug --scheme 'ewallet (Dev)' --simulator='iPhone 6'",
+    "ios-staging": "react-native run-ios --configuration Staging --scheme 'ewallet (Staging)'",
+    "ios-prod": "react-native run-ios --configuration Production --scheme 'ewallet (Production)'"
   },
   "dependencies": {
     "react": "16.8.6",
-    "react-native": "0.60.4"
+    "react-native": "0.60.4",
+    "@react-native-community/async-storage": "^1.5.0",
+    "axios": "^0.18.0",
+    "i18next": "^17.0.4",
+    "moment": "^2.24.0",
+    "react-native-device-info": "^2.1.2",
+    "react-native-fast-image": "^6.0.3",
+    "react-native-keychain": "^3.1.3",
+    "react-native-navigation": "^2.21.0",
+    "react-native-permissions": "^1.2.0",
+    "react-native-splash-screen": "^3.2.0",
+    "react-redux": "^7.1.0",
+    "redux": "^4.0.1",
+    "redux-persist": "^5.10.0",
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
